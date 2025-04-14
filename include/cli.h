@@ -15,6 +15,8 @@
 
 #define F_VERBOSE_S "-v"
 #define F_VERBOSE_L "--verbose"
+#define F_HELP_S "-h"
+#define F_HELP_L "--help"
 
 /**
  * @brief Parse the command line arguments.
@@ -32,5 +34,12 @@ int parse_arguments(char **args, int len);
  * @return Is verbose flag
  */
 bool f_verbose(char *str);
+
+/**
+ * @brief Is the string provided a help flag.
+ * @param str Argument.
+ * @return Is help flag
+ */
+bool f_help(char *str);
 
 #endif

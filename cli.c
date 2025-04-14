@@ -6,6 +6,7 @@
  ***************************************************************/
 
 #include "include/cli.h"
+#include "include/cmds.h"
 
 int parse_arguments(char **args, int len) {
   /* Default flag arguments */
@@ -16,7 +17,11 @@ int parse_arguments(char **args, int len) {
 
   while (i < len) {
     if (f_verbose(args[i])) {
+      /* Set the verbose state */
       verbose = true;
+    } else if (f_help(args[i])) {
+      /* Help flag provided, we can run the cmd here and exit */
+      return cmd_help();
     } else {
       /* If it wasn't parsed, assume it was target input */
       input_idx = i;
@@ -39,4 +44,8 @@ int parse_arguments(char **args, int len) {
 
 bool f_verbose(char *str) {
   return (strcmp(F_VERBOSE_S, str) == 0) || (strcmp(F_VERBOSE_L, str) == 0);
+}
+
+bool f_help(char *str) {
+  return (strcmp(F_HELP_S, str) == 0) || (strcmp(F_HELP_L, str) == 0);
 }

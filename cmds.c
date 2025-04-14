@@ -13,7 +13,12 @@ int cmd_hash_string(char *str, bool verbose) {
 
   /* If verbose, print it, otherwise, nothing */
   if (verbose)
-    printf("%d\n", hash);
+    fprintf(stdout, "%d\n", hash);
 
+  return 0;
+}
+
+int cmd_help() {
+  fprintf(stdout, "%s", HELP_MSG);
   return 0;
 }
