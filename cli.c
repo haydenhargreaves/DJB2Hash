@@ -49,3 +49,15 @@ bool f_verbose(char *str) {
 bool f_help(char *str) {
   return (strcmp(F_HELP_S, str) == 0) || (strcmp(F_HELP_L, str) == 0);
 }
+
+bool f_output(char *str) {
+  return (strcmp(F_OUTPUT_S, str) == 0) || (strcmp(F_OUTPUT_L, str) == 0);
+}
+
+bool f_list(char *str) {
+  return (strcmp(F_LIST_S, str) == 0) || (strcmp(F_LIST_L, str) == 0);
+}
+
+bool f_rainbow(char *str) {
+  return (strcmp(F_RAINBOW_S, str) == 0) || (strcmp(F_RAINBOW_L, str) == 0);
+}

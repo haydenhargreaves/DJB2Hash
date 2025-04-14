@@ -17,6 +17,12 @@
 #define F_VERBOSE_L "--verbose"
 #define F_HELP_S "-h"
 #define F_HELP_L "--help"
+#define F_OUTPUT_S "-o"
+#define F_OUTPUT_L "--output"
+#define F_LIST_S "-l"
+#define F_LIST_L "--list"
+#define F_RAINBOW_S "-r"
+#define F_RAINBOW_L "--rainbow"
 
 /**
  * @brief Parse the command line arguments.
@@ -41,5 +47,26 @@ bool f_verbose(char *str);
  * @return Is help flag
  */
 bool f_help(char *str);
+
+/**
+ * @brief Is the string provided a output flag.
+ * @param str Argument.
+ * @return Is output flag
+ */
+bool f_output(char *str);
+
+/**
+ * @brief Is the string provided a list flag.
+ * @param str Argument.
+ * @return Is list flag
+ */
+bool f_list(char *str);
+
+/**
+ * @brief Is the string provided a rainbow flag.
+ * @param str Argument.
+ * @return Is rainbow flag
+ */
+bool f_rainbow(char *str);
 
 #endif
