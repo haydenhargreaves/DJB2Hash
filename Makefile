@@ -5,12 +5,11 @@ OBJS = main.o hash.o io.o cli.o cmds.o
 HEADERS = include/hash.h include/io.h include/cli.h include/cmds.h
 
 application: $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o main
+	$(CC) $(CFLAGS) $(OBJS) -o hashbat
 		
 
 main.o: main.c $(HEADERS)
 	$(CC) $(CFLAGS) -c main.c
-
 
 hash.o: hash.c $(HEADERS)
 	$(CC) $(CFLAGS) -c hash.c
@@ -25,4 +24,4 @@ cmds.o: cmds.c $(HEADERS)
 	$(CC) $(CFLAGS) -c cmds.c
 
 clean:
-	rm *.o main
+	rm *.o hashbat
