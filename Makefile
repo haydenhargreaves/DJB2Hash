@@ -1,8 +1,8 @@
 CC = gcc
 CFLAGS = -ansi -Wall
 
-OBJS = main.o hash.o io.o
-HEADERS = include/hash.h include/io.h
+OBJS = main.o hash.o io.o cli.o cmds.o
+HEADERS = include/hash.h include/io.h include/cli.h include/cmds.h
 
 application: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o main
@@ -17,6 +17,12 @@ hash.o: hash.c $(HEADERS)
 
 io.o: io.c $(HEADERS)
 	$(CC) $(CFLAGS) -c io.c
+
+cli.o: cli.c $(HEADERS)
+	$(CC) $(CFLAGS) -c cli.c
+
+cmds.o: cmds.c $(HEADERS)
+	$(CC) $(CFLAGS) -c cmds.c
 
 clean:
 	rm *.o main

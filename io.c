@@ -1,5 +1,5 @@
 /****************************************************************
- * File:    hash.c
+ * File:    io.c
  * Author:  Group 6: CS125
  * Purpose: Implementation of the file IO module
  * Date:    4/9/2025

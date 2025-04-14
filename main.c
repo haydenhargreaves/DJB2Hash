@@ -1,10 +1,11 @@
 /****************************************************************
- * File:    hash.c
+ * File:    main.c
  * Author:  Group 6: CS125
  * Purpose: Main application
  * Date:    4/6/2025
  ***************************************************************/
 
+#include "include/cli.h"
 #include "include/hash.h"
 #include "include/io.h"
 #include <stdint.h>
@@ -12,13 +13,8 @@
 #include <string.h>
 
 int main(int argc, char **argv) {
-  int i;
-  for (i = 0; i < argc; i++) {
-    printf("%s ", argv[i]);
-  }
-  printf("\n");
-
-  return argc;
+  /* Execute the command parser */
+  return parse_arguments(argv, argc);
 }
 
 int example() {
