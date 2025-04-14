@@ -11,6 +11,7 @@
 #include "cmds.h"
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define F_VERBOSE_S "-v"
@@ -33,6 +34,14 @@
  * other functions.
  */
 int parse_arguments(char **args, int len);
+
+/**
+ * @brief Get the output location as a file.
+ * @param path Location path.
+ * @return File output.
+ * @note Caller owns the memory and should free/close.
+ */
+FILE *get_output_file(char *path);
 
 /**
  * @brief Is the string provided a verbose flag.

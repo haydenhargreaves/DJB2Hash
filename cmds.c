@@ -6,21 +6,27 @@
  ***************************************************************/
 
 #include "include/cmds.h"
+#include "include/cli.h"
 #include "include/io.h"
 #include <stdio.h>
 
-int cmd_hash_string(char *str, bool verbose) {
+int cmd_hash_string(char *str, char *output, bool verbose) {
   /* Generate the hash */
   uint32_t hash = djb2(str);
 
+  /* Get the output location */
+  FILE *f_out = get_output_file(output);
+
   /* If verbose, print it, otherwise, nothing */
   if (verbose)
-    fprintf(stdout, "%d\n", hash);
+    fprintf(f_out, "%d\n", hash);
+
+  fclose(f_out);
 
   return 0;
 }
 
-int cmd_rainbow_lookup(char *str, char *list, bool versbose) {
+int cmd_rainbow_lookup(char *str, char *list, char *output, bool versbose) {
   errno = 0;
 
   /* Convert the hash to a valid hash */
@@ -54,13 +60,19 @@ int cmd_rainbow_lookup(char *str, char *list, bool versbose) {
   char *match = find_word_by_hash(f_list, hash);
   fclose(f_list);
 
+  /* Get the output location */
+  FILE *f_out = get_output_file(output);
+
   if (versbose) {
     if (match == NULL) {
-      fprintf(stdout, "No match found.\n");
+      fprintf(f_out, "No match found.\n");
+      fclose(f_out);
       return 1;
     }
-    fprintf(stdout, "%s\n", match);
+    fprintf(f_out, "%s\n", match);
   }
+
+  fclose(f_out);
 
   if (match == NULL)
     return 1;

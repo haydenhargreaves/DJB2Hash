@@ -37,19 +37,21 @@
 /**
  * @brief Execute the hash command.
  * @param str String to hash.
+ * @param output Location of output.
  * @param verbose Is verbose flag.
  * @return Main program exit status code.
  */
-int cmd_hash_string(char *str, bool verbose);
+int cmd_hash_string(char *str, char *output, bool verbose);
 
 /**
  * @brief Execute the rainbow lookup command.
  * @param str Hash to lookup.
  * @param list Rainbow table file.
+ * @param output Location of output.
  * @param verbose Is verbose flag.
  * @return Main program exit status code.
  */
-int cmd_rainbow_lookup(char *str, char *list, bool versbose);
+int cmd_rainbow_lookup(char *str, char *list, char *output, bool versbose);
 
 /**
  * @brief Execute the help command.

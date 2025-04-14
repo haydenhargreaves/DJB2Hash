@@ -17,6 +17,7 @@ int parse_arguments(char **args, int len) {
   /* TODO: We might actually need to allocate memory... */
   int input_idx = 0;
   int list_idx = 0;
+  int output_idx = 0;
 
   int i = 0;
 
@@ -30,6 +31,22 @@ int parse_arguments(char **args, int len) {
     } else if (f_rainbow(args[i])) {
       /* Set the rainbow state */
       rainbow = true;
+    } else if (f_output(args[i])) {
+      /* This arg is the output flag, the next arg should be a location */
+      if (i < len - 1) {
+        if (!f_flag(args[++i])) {
+          output_idx = i;
+        } else {
+          fprintf(stderr,
+                  "Invalid usage. Please provide a valid output location.\n%s",
+                  HELP_MSG);
+          return 1;
+        }
+      } else {
+        fprintf(stderr, "Invalid usage. Please provide an output location.\n%s",
+                HELP_MSG);
+        return 1;
+      }
     } else if (f_list(args[i])) {
       /* This arg is the index flag, the next arg should be the path */
       if (i < len - 1) {
@@ -63,11 +80,37 @@ int parse_arguments(char **args, int len) {
   }
 
   /* Rainbow flag was provided, execute the rainbow command */
+  /* If there was no output, use stdout */
   if (rainbow) {
-    return cmd_rainbow_lookup(args[input_idx], args[list_idx], verbose);
+    if (output_idx == 0)
+      return cmd_rainbow_lookup(args[input_idx], args[list_idx], "stdout",
+                                verbose);
+    return cmd_rainbow_lookup(args[input_idx], args[list_idx], args[output_idx],
+                              verbose);
   }
 
-  return cmd_hash_string(args[input_idx], verbose);
+  if (output_idx == 0)
+    return cmd_hash_string(args[input_idx], "stdout", verbose);
+  return cmd_hash_string(args[input_idx], args[output_idx], verbose);
+}
+
+FILE *get_output_file(char *path) {
+  /* Value provided was stdout or stderr */
+  if (strcmp(path, "stdout") == 0)
+    return stdout;
+
+  if (strcmp(path, "stderr") == 0)
+    return stderr;
+
+  /* Else, attempt to open the file */
+  FILE *f_out = fopen(path, "w");
+  if (f_out == NULL) {
+    fprintf(stderr, "Invalid usage. Please provide a valid output.\n%s",
+            HELP_MSG);
+    exit(1);
+  }
+
+  return f_out;
 }
 
 bool f_verbose(char *str) {
