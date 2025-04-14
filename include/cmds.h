@@ -9,8 +9,13 @@
 #define CMDS_H
 
 #include "hash.h"
+#include <errno.h>
+#include <limits.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define HELP_MSG                                                               \
   "Usage: hashbat [OPTIONS] [INPUT]\n"                                         \
@@ -36,6 +41,15 @@
  * @return Main program exit status code.
  */
 int cmd_hash_string(char *str, bool verbose);
+
+/**
+ * @brief Execute the rainbow lookup command.
+ * @param str Hash to lookup.
+ * @param list Rainbow table file.
+ * @param verbose Is verbose flag.
+ * @return Main program exit status code.
+ */
+int cmd_rainbow_lookup(char *str, char *list, bool versbose);
 
 /**
  * @brief Execute the help command.

@@ -69,4 +69,12 @@ bool f_list(char *str);
  */
 bool f_rainbow(char *str);
 
+/**
+ * @brief Is the string provided a flag of any kind.
+ * @param str Argument.
+ * @return Is a flag
+ * @note This uses the implementation of the other parsers.
+ */
+bool f_flag(char *str);
+
 #endif
