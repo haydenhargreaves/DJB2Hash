@@ -18,8 +18,13 @@ int cmd_hash_string(char *str, char *output, bool verbose) {
   FILE *f_out = get_output_file(output);
 
   /* If verbose, print it, otherwise, nothing */
-  if (verbose)
+  if ((f_out == stdout || f_out == stderr)) {
+    if (verbose)
+      fprintf(f_out, "%d\n", hash);
+  } else {
+    /* If its a file, print always */
     fprintf(f_out, "%d\n", hash);
+  }
 
   fclose(f_out);
 
@@ -63,7 +68,17 @@ int cmd_rainbow_lookup(char *str, char *list, char *output, bool versbose) {
   /* Get the output location */
   FILE *f_out = get_output_file(output);
 
-  if (versbose) {
+  /* If verbose, print it, otherwise, nothing */
+  if ((f_out == stdout || f_out == stderr)) {
+    if (versbose) {
+      if (match == NULL) {
+        fprintf(f_out, "No match found.\n");
+        fclose(f_out);
+        return 1;
+      }
+      fprintf(f_out, "%s\n", match);
+    }
+  } else {
     if (match == NULL) {
       fprintf(f_out, "No match found.\n");
       fclose(f_out);
