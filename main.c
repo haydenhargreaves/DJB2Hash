@@ -5,26 +5,24 @@
  * Date:    4/6/2025
  ***************************************************************/
 
-#include "hash.h"
-#include "io.h"
+#include "include/hash.h"
+#include "include/io.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
-#define WORD_LIST "word-list-extra-large.txt"
+int main(int argc, char **argv) {
+  int i;
+  for (i = 0; i < argc; i++) {
+    printf("%s ", argv[i]);
+  }
+  printf("\n");
 
-int main() {
-  /*
-  const char *string1 = "hello";
-  const char *string2 = "world";
-  const char *string3 = "Hello";
-  const char *string4 = "zysk";
+  return argc;
+}
 
-  printf("Case-sensitive Hash of \"%s\": %u\n", string1, djb2(string1));
-  printf("Case-sensitive Hash of \"%s\": %u\n", string2, djb2(string2));
-  printf("Case-sensitive Hash of \"%s\": %u\n", string3, djb2(string3));
-  printf("Case-sensitive Hash of \"%s\": %u\n", string4, djb2(string4));
-  */
+int example() {
+  char *WORD_LIST = "word-list-extra-large.txt";
 
   /* Open words list */
   FILE *f = fopen(WORD_LIST, "r");

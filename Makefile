@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -ansi -Wall
 
 OBJS = main.o hash.o io.o
-HEADERS = hash.h io.h
+HEADERS = include/hash.h include/io.h
 
 application: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o main

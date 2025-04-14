@@ -5,7 +5,7 @@
  * Date:    4/6/2025
  ***************************************************************/
 
-#include "hash.h"
+#include "include/hash.h"
 
 uint32_t djb2(const char *str) {
   uint32_t hash = 5381;

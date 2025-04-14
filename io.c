@@ -4,8 +4,8 @@
  * Purpose: Implementation of the file IO module
  * Date:    4/9/2025
  ***************************************************************/
-#include "io.h"
-#include "hash.h"
+#include "include/io.h"
+#include "include/hash.h"
 #include <string.h>
 
 char *find_word_by_hash(FILE *f, uint32_t hash) {
