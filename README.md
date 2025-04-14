@@ -47,6 +47,7 @@ hashbat [OPTIONS] [INPUT]
     * Verbose flag is NOT required for the help command.
 * `-o`, `--output <output>`:
     * Specifies the location to print the output.
+    * The verbose flag is not required when the output is directed. Unless `stdout` or `stderr` is used.
     * Use `stdout` for standard output.
 * `-r`, `--rainbow`:
     * Enables rainbow table lookup (de-hashing).
@@ -72,7 +73,7 @@ hashbat [OPTIONS] [INPUT]
 2.  **Hash a string and save the output to a file:**
 
     ```bash
-    hashbat -v -o output.txt "hello world"
+    hashbat -o output.txt "hello world"
     ```
 
 3.  **Perform a rainbow table lookup:**
