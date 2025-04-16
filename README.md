@@ -105,7 +105,7 @@ The program returns an exit status code to indicate success or failure.  (The sp
 1.  **Clone the repository:**
 
     ```bash
-    git clone <your_repository_url>
+    git clone https://github.com/haydenhargreaves/DJB2Hash.git
     cd hashbat
     ```
 
