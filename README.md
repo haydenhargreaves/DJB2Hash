@@ -1,5 +1,7 @@
 # Hashbat: CS125 Final Spring 2025
 
+[![Run Tests](https://github.com/haydenhargreaves/DJB2Hash/actions/workflows/run_tests.yml/badge.svg)](https://github.com/haydenhargreaves/DJB2Hash/actions/workflows/run_tests.yml)
+
 <!--toc:start-->
 - [Hashbat: CS125 Final Spring 2025](#hashbat-cs125-final-spring-2025)
   - [Description](#description)
