@@ -4,6 +4,9 @@ CFLAGS = -ansi -Wall
 OBJS = main.o hash.o io.o cli.o cmds.o
 HEADERS = include/hash.h include/io.h include/cli.h include/cmds.h
 
+PREFIX = $(HOME)
+BINDIR = $(PREFIX)/.local/bin
+
 application: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o hashbat
 		
@@ -22,6 +25,13 @@ cli.o: cli.c $(HEADERS)
 
 cmds.o: cmds.c $(HEADERS)
 	$(CC) $(CFLAGS) -c cmds.c
+
+install: application
+	install -d "$(BINDIR)"
+	install -m 755 hashbat "$(BINDIR)/hashbat"
+
+uninstall:
+	rm -f "$(BINDIR)/hashbat"
 
 clean:
 	rm *.o hashbat
