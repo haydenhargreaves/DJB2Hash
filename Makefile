@@ -4,8 +4,13 @@ CFLAGS = -ansi -Wall
 OBJS = main.o hash.o io.o cli.o cmds.o
 HEADERS = include/hash.h include/io.h include/cli.h include/cmds.h
 
+TOBJS = hash.o io.o cli.o cmds.o
+TFILES = test/test.c test/hash_tests.c
+
 PREFIX = $(HOME)
 BINDIR = $(PREFIX)/.local/bin
+
+.PHONY: clean test install uninstall
 
 application: $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o hashbat
@@ -33,5 +38,9 @@ install: application
 uninstall:
 	rm -f "$(BINDIR)/hashbat"
 
+test: $(TFILES) $(OBJS)
+	$(CC) $(CFLAGS) $(TFILES) hash.c -o tests
+	./tests
+
 clean:
-	rm *.o hashbat
+	rm *.o hashbat tests
