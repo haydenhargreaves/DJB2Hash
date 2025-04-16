@@ -1,0 +1,24 @@
+name: Run Tests
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up environment
+        run: |
+          # Install any dependencies your project needs here
+          # For example, if you need gcc and make:
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
+      - name: Run tests
+        run: make test
