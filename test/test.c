@@ -5,6 +5,7 @@
  * Date:    4/16/2025
  ***************************************************************/
 
+#include "cli_tests.h"
 #include "hash_tests.h"
 #include <stdio.h>
 
@@ -15,6 +16,14 @@ int main() {
     printf("Test Passed! test_djb2 [status: %d]\n", status_1);
   } else {
     printf("Test failed! test_djb2 [status: %d]\n", status_1);
+  }
+
+  /* Test the cli module */
+  int status_2 = test_flag_parsers();
+  if (status_2 == 0) {
+    printf("Test Passed! test_flag_parsers [status: %d]\n", status_2);
+  } else {
+    printf("Test failed! test_flag_parsers [status: %d]\n", status_2);
   }
 
   return status_1;

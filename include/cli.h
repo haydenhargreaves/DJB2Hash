@@ -28,7 +28,7 @@
 /**
  * @brief Parse the command line arguments.
  * @param args Arguments passed to program.
- * @param len Number of argumentsk
+ * @param len Number of arguments
  * @return Return code for the program.
  * @note This function will handle the main loop and calling of
  * other functions.

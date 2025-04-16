@@ -5,7 +5,7 @@ OBJS = main.o hash.o io.o cli.o cmds.o
 HEADERS = include/hash.h include/io.h include/cli.h include/cmds.h
 
 TOBJS = hash.o io.o cli.o cmds.o
-TFILES = test/test.c test/hash_tests.c
+TFILES = test/test.c test/hash_tests.c test/cli_tests.c
 
 PREFIX = $(HOME)
 BINDIR = $(PREFIX)/.local/bin
@@ -39,7 +39,7 @@ uninstall:
 	rm -f "$(BINDIR)/hashbat"
 
 test: $(TFILES) $(OBJS)
-	$(CC) $(CFLAGS) $(TFILES) hash.c -o tests
+	$(CC) $(CFLAGS) $(TFILES) $(TOBJS) -o tests
 	./tests
 
 clean:
