@@ -115,6 +115,19 @@ The program returns an exit status code to indicate success or failure.  (The sp
     make
     ```
 
+3.  **Install to the application:**
+
+    ```bash
+    make install
+    ```
+
+    This will install the application to your users `~/.local/bin` directory. If you want to run 
+    this command from anywhere, make sure the `~/.local/bin` directory has been added to your 
+    system path.
+
+    NOTE: The application can be uninstalled from the system using `make uninstall`.
+
+
 ## Hash Algorithm
 
 Hashbat uses the DJB2 hashing algorithm.
