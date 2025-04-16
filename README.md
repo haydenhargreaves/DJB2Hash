@@ -79,7 +79,7 @@ hashbat [OPTIONS] [INPUT]
 3.  **Perform a rainbow table lookup:**
 
     ```bash
-    hashbat -v -r -l wordlist.txt "e5e9fa1ba31ecd1ae84f75caaa474f3a6639c08b"
+    hashbat -v -r -l wordlist.txt "261238937"
     ```
 
 4.  **Display the help message:**
