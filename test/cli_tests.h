@@ -5,6 +5,9 @@
  * Date:    4/16/2025
  ***************************************************************/
 
+#ifndef CLI_TESTS_H
+#define CLI_TESTS_H
+
 #include "../include/cli.h"
 
 /**
@@ -12,3 +15,5 @@
  * @return Status of test, 0 for pass, 1 for fail
  */
 int test_flag_parsers();
+
+#endif

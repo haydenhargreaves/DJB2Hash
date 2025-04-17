@@ -5,6 +5,9 @@
  * Date:    4/16/2025
  ***************************************************************/
 
+#ifndef HASH_TESTS_H
+#define HASH_TESTS_H
+
 #include "../include/hash.h"
 #include <stdint.h>
 
@@ -13,3 +16,5 @@
  * @returns Status code, 0 for pass, 1 for fail
  */
 int test_djb2();
+
+#endif

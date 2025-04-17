@@ -5,7 +5,7 @@ OBJS = main.o hash.o io.o cli.o cmds.o
 HEADERS = include/hash.h include/io.h include/cli.h include/cmds.h
 
 TOBJS = hash.o io.o cli.o cmds.o
-TFILES = test/test.c test/hash_tests.c test/cli_tests.c
+TFILES = test/test.c test/hash_tests.c test/cli_tests.c test/io_tests.c
 
 PREFIX = $(HOME)
 BINDIR = $(PREFIX)/.local/bin
