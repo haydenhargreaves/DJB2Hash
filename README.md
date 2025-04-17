@@ -102,8 +102,6 @@ The program returns an exit status code to indicate success or failure.  (The sp
 
 ## Installation
 
-(Provide instructions on how to compile and install your application.  Since this is C code, it likely involves using a compiler like GCC and a build system (like make).  Here's a general example; adapt it to your specific build process.)
-
 1.  **Clone the repository:**
 
     ```bash
@@ -123,11 +121,11 @@ The program returns an exit status code to indicate success or failure.  (The sp
     make install
     ```
 
-    This will install the application to your users `~/.local/bin` directory. If you want to run 
-    this command from anywhere, make sure the `~/.local/bin` directory has been added to your 
-    system path.
+This will install the application to your users `~/.local/bin` directory. If you want to run 
+this command from anywhere, make sure the `~/.local/bin` directory has been added to your 
+system path.
 
-    NOTE: The application can be uninstalled from the system using `make uninstall`.
+NOTE: The application can be uninstalled from the system using `make uninstall`.
 
 
 ## Hash Algorithm
